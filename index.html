@@ -1,7 +1,203 @@
 <!DOCTYPE html>
 <html>
+<head>
+  <!-- Standard Meta -->
+
+  
+
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+  <!-- Site Properties -->
+  <title>Homepage - Learn Object-oriented JS</title>
+
+
+  <link rel="stylesheet" type="text/css" href="custom.css">
+
+  <script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/components/visibility.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/components/sidebar.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/components/transition.js"></script>
+  <script>
+  $(document)
+    .ready(function() {
+      // from Semantic UI:
+      // fix menu when passed
+      $('.masthead')
+        .visibility({
+          once: false,
+          onBottomPassed: function() {
+            $('.fixed.menu').transition('fade in');
+          },
+          onBottomPassedReverse: function() {
+            $('.fixed.menu').transition('fade out');
+          }
+        })
+      ;
+
+      // create sidebar and attach to menu open
+      $('.ui.sidebar')
+        .sidebar('attach events', '.toc.item')
+      ;
+
+    })
+  ;
+  </script>
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+
+<!-- Following Menu -->
+<div class="ui large top fixed hidden menu">
+  <div class="ui container">
+        <a href="index.html" class="active item">Home</a>
+        <a href="ECMAScript.html" class="item">ECMAScript</a>
+        <a href="json.html" class="item">JSON</a>
+        <a href="about.html" class="item">About OOS JS</a>
+    <!-- <div class="right menu">
+      <div class="item">
+        <a class="ui button">Log in</a>
+      </div>
+      <div class="item">
+        <a class="ui primary button">Sign Up</a>
+      </div>
+    </div> -->
+  </div>
+</div>
+
+<!-- Sidebar Menu -->
+<div class="ui vertical inverted sidebar menu">
+        <a href="index.html" class="active item">Home</a>
+        <a href="ECMAScript.html" class="item">ECMAScript</a>
+        <a href="json.html" class="item">JSON</a>
+        <a href="about.html" class="item">About OOS JS</a>
+</div>
+
+
+<!-- Page Contents -->
+<div class="pusher">
+  <div class="ui inverted vertical masthead center aligned segment">
+
+    <div class="ui container">
+      <div class="ui large secondary inverted pointing menu">
+        <a class="toc item">
+          <i class="sidebar icon"></i>
+        </a>
+        <a href="index.html" class="active item">Home</a>
+        <a href="ECMAScript.html" class="item">ECMAScript</a>
+        <a href="json.html" class="item">JSON</a>
+        <a href="about.html" class="item">About OOS JS</a>
+        
+        <!--<div class="right item">
+          <a class="ui inverted button">Log in</a>
+          <a class="ui inverted button">Sign Up</a>
+        </div>-->
+      </div>
+    </div>
+
+    <div class="ui text container">
+      <h1 class="ui inverted header">
+        Learn Object-oriented JavaScript
+      </h1>
+      <h2>Do whatever you want when you want to.</h2>
+      <a href="json.html"><div class="ui huge primary button">Get Started <i class="right arrow icon"></i></div></a>
+    </div>
+
+  </div>
+
+  <div class="ui vertical stripe segment">
+    <div class="ui middle aligned stackable grid container">
+      <div class="row">
+        <div class="eight wide column">
+          <h3 class="ui header"><i>IS</i> JavaScript Even an OOP Language?</h3>
+          <p>The question of whether JavaScript is an OOP is active. Some think <a href="https://medium.com/@andrea.chiarelli/is-javascript-a-true-oop-language-c87c5b48bdf0">YES</a> and some <a href="https://stackoverflow.com/questions/107464/is-javascript-object-oriented">NO!</a> Mostly, it is considered an OOP language, and, from the point of all truth, <a href="https://en.wikipedia.org/wiki/Object-oriented_programming">Wilipeia lists it</a> as an OOP.</p>
+          <h3 class="ui header">What Makes JavaScript an OOP?</h3>
+          <p>Javascript meets all three of these tests to determine that it is an OOP</p>
+          <p>Association: an object’s ability to refer to another object<br>
+             Aggregation: an object’s capability to include more objects<br>
+             Composition: an object can embed other objects</p>
+          <p><i>examples to follow</i></p>
+        </div>
+        <div class="six wide right floated column">
+          <img src="assets/images/wireframe/white-image.png" class="ui large bordered rounded image">
+        </div>
+      </div>
+      <div class="row">
+        <div class="center aligned column">
+          <a class="ui huge button">Check It Out</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="ui vertical stripe quote segment">
+    <div class="ui equal width stackable internally celled grid">
+      <div class="center aligned row">
+        <div class="column">
+          <h3>"Holy Cow, this is Cool!"</h3>
+          <p>That is what many say when they learn JS OOP</p>
+        </div>
+        <div class="column">
+          <h3>"I Should have started JA OOP techniques earlier!"</h3>
+          <p>
+            <img src="assets/images/avatar/nan.jpg" class="ui avatar image"> <b>Me</b> Three weeks ago. 
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ui vertical stripe segment">
+    <div class="ui text container">
+      <h3 class="ui header">What is the difference Between ECMAScript and JavaScript</h3>
+      <p>Let Me google that for you ... <a href="https://www.google.com/search?q=what+is+the+difference+between+ecmascript+and+javascript&oq=What+is+the+difference+Between+ECMAScript+and+JavaScript">here</a> ... but mostly, JavaScript is the original name and structures of the language developed by Netscape. ECMAScript is JavaScript language that meets the European Computer Manufacturer's Association defined specification of ECMAScript. Most all new JS implementations will meet ECMAScript standards.</p>
+      <a href="ECMAScript.html" class="ui large button">Read More</a>
+      <h4 class="ui horizontal header divider">
+        <a href="#">Case Studies</a>
+      </h4>
+      <h3 class="ui header">Did We Tell You About Our Bananas?</h3>
+      <p>Yes I know you probably disregarded the earlier boasts as non-sequitur filler content, but its really true. It took years of gene splicing and combinatory DNA research, but our bananas can really dance.</p>
+      <a class="ui large button">I'm Still Quite Interested</a>
+    </div>
+  </div>
+
+
+  <div class="ui inverted vertical footer segment">
+    <div class="ui container">
+      <div class="ui stackable inverted divided equal height stackable grid">
+        <div class="three wide column">
+          <h4 class="ui inverted header">About OOS JS</h4>
+          <div class="ui inverted link list">
+        <a href="index.html" class="active item">Home</a>
+        <a href="ECMAScript.html" class="item">ECMAScript</a>
+        <a href="json.html" class="item">JSON</a>
+        <a href="about.html" class="item">About OOS JS</a>
+          </div>
+        </div>
+        <div class="three wide column">
+          <h4 class="ui inverted header">Services</h4>
+          <div class="ui inverted link list">
+            <a href="#" class="item">Banana Pre-Order</a>
+            <a href="#" class="item">DNA FAQ</a>
+            <a href="#" class="item">How To Access</a>
+            <a href="#" class="item">Favorite X-Men</a>
+          </div>
+        </div>
+        <div class="seven wide column">
+          <h4 class="ui inverted header">Footer Header</h4>
+          <p>Extra space for a call to action inside the footer that could help re-engage users.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 </body>
+
 </html>
