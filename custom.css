@@ -7,6 +7,10 @@
       html template and JS framework from https://semantic-ui.com/ 
 */    
 
+    article {
+      margin-left: 22px;
+
+    }
 
     .hidden.menu {
       display: none;
