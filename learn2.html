@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
    <!--
-      Chapter 2 Case Project
+      Chapter 3 Case Project
 
       See line 109 for custom html and 184 for javascript.
 
       Author: Matthew Redekop
-      Date:   02/18/2019
+      Date:   02/24/2019
 
-      Filename: learn.html
+      Filename: learn2.html
    -->
 
   <!-- Standard Meta from Semantic-UI
@@ -182,7 +182,7 @@
   </div>
 
 <!-- below is my custom script that calculates your age in the furture. Has checking to make sure there is a number entered.
-    the core is taken form assignment 2 but updated, as noted by the comments, for assignment 3.
+    the core is taken from assignment 2 but updated, as noted by the comments, for assignment 3.
  -->
 <script>
   function dateAge() { 
@@ -258,7 +258,15 @@
     
 
   }
-  document.getElementById("getAge").addEventListener("click", dateAge, false);
+
+    // set up submit button event to accomidate older browsers
+  if (document.getElementById("getAge").addEventListener) { 
+    document.getElementById("getAge").addEventListener("click", dateAge, false);
+
+  } else if (document.getElementById("getAge").attachEvent) { 
+    document.getElementById("getAge").attachEvent("click", dateAge);
+  }
+
 
 </script>
 
