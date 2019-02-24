@@ -103,6 +103,7 @@
     </div>
   </div>
 <div class="ui text container">
+  <p>Assignment 3</p>
   <p>First lesson. Use a canned object, the most useful and one that is used widely: the date object.</p>
   <p> create a date object like so: <i>var t = new Date();</i> and then get properties like hour, minute, and, as in the case below, the year.</p>
 
@@ -127,7 +128,7 @@
             <button type="button" id="getAge">Get your age...</button>
           </fieldset>
      </form>
-     <h2 id="result" style="display:none;">In the year <span id="outYear"></span> you will be <span id="outAge"></span>. You will be older, that much is certain.</h2>
+     <h2 id="result" style="display:none;">In the year <span id="outYear"></span> you will be <span id="outAge"></span>. <span id="outMessage"></span></h2>
 
    </article>
 
@@ -206,12 +207,47 @@
         } else {
           var today = new Date();
           var theYear = today.getFullYear();
-          var out = (year - theYear) + age;
+          var outAge = (year - theYear) + age;
 
           document.getElementById("result").style.display = "block";
           document.getElementById("outYear").textContent = year;
-          document.getElementById("outAge").textContent = out;
+          document.getElementById("outAge").textContent = outAge;
           
+          ////////
+          // Assignment 3 changes follow... show use of an if / else statement.
+          ///////
+
+          var message = "";
+          if ( outAge <= 12 ){
+            message = "You will still be a child."
+
+          } else if (outAge >= 13 && outAge <= 19) {
+            message = "You will be a teenager";
+            if (outAge == 16){
+              message += ". You will be able to get a drivers license";
+            }
+            if (outAge >= 18){
+              message += " and be able to vote and join the Army";
+            }
+            message +=".";
+          } else if (outAge > 19 && outAge < 65){
+            message = "You will be an adult, have fun with that."
+            if (outAge == 21) {
+              message+= " You can now drink alcohol legally."
+            }
+            if (outAge > 50){
+              message += " And, you will be over the hill. "
+            }
+          } else if (outAge >= 65 && outAge < 100) {
+            message = " You will be a senior citizen and hopefully be retired."
+          } else {
+            message = "You will have lived longer than most."
+            if (outAge >120){
+              message += " And, might even be the oldest person ever."
+            }
+          }
+
+          document.getElementById("outMessage").textContent = message;
 
         }
       } else {
