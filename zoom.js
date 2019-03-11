@@ -17,7 +17,7 @@ var photoOrderArray = window.opener.photoOrder;
 var petsArray = window.opener.imagesJson;
 
 // file name derived from images arrays
-var figFilename = "images/petsIcons/" + petsArray[photoOrderArray[2]] + ".jpg";
+var figFilename = "images/petIcons/" + petsArray[photoOrderArray[2]] + ".jpg";
 
 /* populate img element and create event listener */
 function pageSetup() {
