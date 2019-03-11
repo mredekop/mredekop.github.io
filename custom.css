@@ -7,8 +7,87 @@
       html template and JS framework from https://semantic-ui.com/ 
 */    
 
+/* for photo gallery */
+
+#leftarrow, #rightarrow {
+   background: #696565;
+   color: white;
+   position: absolute;
+   z-index: 30;
+   text-align: center;
+   height: 135px;
+   width: 40px;
+   top: 67px;
+}
+
+article div:hover {
+   cursor: default;
+}
+
+#leftarrow {
+   left: 0;
+}
+
+#rightarrow {
+   right: 0;
+}
+
+#leftarrow p, #rightarrow p {
+   position: relative;
+   top: 50%;
+   margin-top: -0.5em;
+}
+
+figure {
+   position: absolute;
+   -webkit-box-shadow: 10px 0px 5px rgb(50, 50, 50),
+                       -10px 0px 5px rgb(50, 50, 50);
+   -moz-box-shadow:    10px 0px 5px rgb(50, 50, 50),
+                       -10px 0px 5px rgb(50, 50, 50);
+   box-shadow:         10px 0px 5px rgb(50, 50, 50),
+                       -10px 0px 5px rgb(50, 50, 50);
+}
+
+#fig1 {
+   z-index: 5;
+   left: 45px;
+   top: 67px;
+}
+
+#fig2 {
+   z-index: 10;
+   left: 13%;
+   top: 34px;
+}
+
+#fig3 {
+   z-index: 20;
+   left: 50%;
+   margin-left: -240px;
+   top: 0;
+}
+
+#fig4 {
+   z-index: 10;
+   right: 13%;
+   top: 34px;
+}
+
+#fig5 {
+   z-index: 5;
+   right: 45px;
+   top: 67px;
+
+}
+#gallery {
+  position: relative;
+  height:500px;
+  width:1000px;
+}
+
     article {
       margin-left: 22px;
+
 
     }
 
