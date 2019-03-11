@@ -4,8 +4,8 @@
 
  *    Photo zoom
  *    Variables and functions
- *    Author: Matthew 
- *    Date:   
+ *    Author: Matthew Redekop
+ *    Date:   3/10/2019
 
  *    Filename: zoom.js
  */
@@ -16,11 +16,11 @@
 var photoOrderArray = window.opener.photoOrder;
 var petsArray = window.opener.imagesJson;
 
+// file name derived from images arrays
 var figFilename = "images/petsIcons/" + petsArray[photoOrderArray[2]] + ".jpg";
 
 /* populate img element and create event listener */
 function pageSetup() {
-	console.log("got here")
    document.getElementsByTagName("img")[0].src = figFilename; // assign filename to img element
 }
 
