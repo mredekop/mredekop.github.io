@@ -16,10 +16,6 @@
 var photoOrder = [1,2,3,4,5,6,7,8];
 var imagesJson = { 1:"scully", 2:"leonard", 3:"taco", 4:"bird", 5:"luna", 6:"steve",7:"schmordo", 8:"bubby"};
 
-/* add img src value and create event listener when page finishes loading */
-window.onload = pageSetup;
-
-
 /* shift all images one figure to the left, and change values in photoOrder array to match  */
 function rightArrow() {
    for (var i = 0; i < 8; i++) {
@@ -90,10 +86,7 @@ function populateFigures() {
    // loop through image order array and adjust the images sources
    for (let i = 0; i < 5; i++) {
 
-
          filename = "images/petIcons/" + imagesJson[photoOrder[i]] + ".jpg";
-
-         console.log(filename, i)
 
          currentFig = document.getElementsByClassName("gallery")[i];
          currentFig.src = filename;
