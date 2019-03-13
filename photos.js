@@ -4,8 +4,8 @@
 
  *    Photo gallery
  *    Variables and functions
- *    Author: 
- *    Date:   
+ *    Author: Matthew Redekop
+ *    Date:   3/12/2019
 
  *    Filename: photos.js
  */
@@ -56,13 +56,15 @@ function setUpPage() {
 
 /* create event listeners for left arrow, right arrow, and center figure element */ 
 function createEventListeners() {
+
+      // event listener for left arrow
    var leftarrow = document.getElementById("leftarrow");
    if (leftarrow.addEventListener) {
       leftarrow.addEventListener("click", leftArrow, false);
    } else if (leftarrow.attachEvent) {
       leftarrow.attachEvent("onclick", leftArrow);
    }
-
+   // event listener for right arrow
    var rightarrow = document.getElementById("rightarrow");
    if (rightarrow.addEventListener) {
       rightarrow.addEventListener("click", rightArrow, false);
@@ -70,6 +72,7 @@ function createEventListeners() {
       rightarrow.attachEvent("onclick", rightArrow);
    }
 
+   //event listenr for pop up detail window
    var mainFig = document.getElementsByClassName("gallery")[2];
    if (mainFig.addEventListener) {
       mainFig.addEventListener("click", zoomFig, false);
@@ -85,11 +88,14 @@ function populateFigures() {
 
    // loop through image order array and adjust the images sources
    for (let i = 0; i < 5; i++) {
-
+         // generate the file name and path
          filename = "images/petIcons/" + imagesJson[photoOrder[i]] + ".jpg";
-
+         // grab the element instance
          currentFig = document.getElementsByClassName("gallery")[i];
+         // add generated path to the src property
          currentFig.src = filename;
+         // add an alt tag with the pets name
+         currentFig.alt = imagesJson[photoOrder[i]];
    }
 }
 

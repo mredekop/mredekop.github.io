@@ -17,11 +17,15 @@
    text-align: center;
    height: 135px;
    width: 40px;
-   top: 67px;
+   top: 120px;
 }
 
 article div:hover {
    cursor: default;
+}
+
+#rightarrow:hover, #leftarrow:hover, #fig3:hover  {
+  cursor: pointer;
 }
 
 #leftarrow {
