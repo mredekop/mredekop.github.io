@@ -44,7 +44,7 @@ function leftArrow() {
 
 /* open center figure in separate window */
 function zoomFig() {
-   var zoomWindow = window.open("zoom.htm", "zoomwin", "width=650,height=800");
+   var zoomWindow = window.open("zoom.htm", "zoomwin", "width=640,height=700");
 }
 
 /* create event listeners and populate image elements */
