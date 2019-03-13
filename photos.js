@@ -13,13 +13,13 @@
 "use strict"; // interpret document contents in JavaScript strict mode
 
 /* global variable, the main photo order tracking */
-var photoOrder = [1,2,3,4,5,6,7,8];
-var imagesJson = { 1:"scully", 2:"leonard", 3:"taco", 4:"bird", 5:"luna", 6:"steve",7:"schmordo", 8:"bubby"};
+var photoOrder = [1,2,3,4,5,6,7,8,9];
+var imagesJson = { 1:"scully", 2:"leonard", 3:"taco", 4:"bird", 5:"luna", 6:"steve",7:"schmordo", 8:"bubby", 9:"boris"};
 
 /* shift all images one figure to the left, and change values in photoOrder array to match  */
 function rightArrow() {
-   for (var i = 0; i < 8; i++) {
-      if ((photoOrder[i] + 1) === 9) {
+   for (var i = 0; i < 9; i++) {
+      if ((photoOrder[i] + 1) === 10) {
          photoOrder[i] = 1;
       } else {
          photoOrder[i] += 1;
@@ -31,9 +31,9 @@ function rightArrow() {
 
 /* shift all images one figure to the right, and change values in photoOrder array to match  */
 function leftArrow() {
-   for (var i = 0; i < 8; i++) {
+   for (var i = 0; i < 9; i++) {
       if ((photoOrder[i] - 1) === 0) {
-         photoOrder[i] = 8;
+         photoOrder[i] = 9;
       } else {
          photoOrder[i] -= 1;
       }
