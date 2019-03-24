@@ -52,6 +52,10 @@ figure {
                        -10px 0px 5px rgb(50, 50, 50);
 }
 
+#futureOpts {
+  margin-left: 18px;
+}
+
 #fig1 {
    z-index: 5;
    left: 45px;

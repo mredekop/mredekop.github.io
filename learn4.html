@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <!--
+      Chapter 6 Case Project
+
+      See line 109 for custom html and 184 for javascript and a description of my troubleshooting techniques. 
+
+      Author: Matthew Redekop
+      Date:   3/24/2019
+
+      Filename: learn4.html
+   -->
+
+  <!-- Standard Meta from Semantic-UI
+    html template and JS framework from https://semantic-ui.com/ --> 
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0">
+
+  <!-- Site Properties -->
+  <title>Learn JS</title>
+<!-- load Semantic-UI framework materials -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+  <link rel="stylesheet" type="text/css" href="custom.css">
+
+  <script src="modernizr.custom.05819.js"></script>
+
+  <!-- load JQuery, this drives the semantic-ui scripts -->
+  <script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/components/visibility.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/components/sidebar.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/components/transition.js"></script>
+  <script>
+  $(document)
+    .ready(function() {
+
+      // fix main menu to page on passing, from semantic-ui
+      $('.main.menu').visibility({
+        type: 'fixed'
+      });
+      $('.overlay').visibility({
+        type: 'fixed',
+        offset: 80
+      });
+
+      // lazy load images, from semantic-ui
+      $('.image').visibility({
+        type: 'image',
+        transition: 'vertical flip in',
+        duration: 500
+      });
+
+      // show dropdown on hover, from semantic-ui
+      $('.main.menu  .ui.dropdown').dropdown({
+        on: 'hover'
+      });
+    })
+  ;
+  </script>
+
+</head>
+<body>
+
+  <div class="ui main text container">
+    <!-- Main header area -->
+    <h1 class="ui header">Learn OOP JS</h1>
+    <p>This page will contain information on how to use OOP techniques in JS</p>
+  </div>
+
+
+  <div class="ui borderless main menu">
+    <div class="ui text container">
+      <div class="header item">
+        <img class="logo" src="images/0.jpeg" alt="Me">
+        <a href="index.html">Learn OOS JS Home</a>
+      </div>
+        <a href="ECMAScript.html" class="item">ECMAScript</a>
+        <a href="json.html" class="item">JSON</a>
+<!-- comment out ui pieces that may not be needed yet
+    <a href="#" class="ui right floated dropdown item">
+        Dropdown <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item">Link Item</div>
+          <div class="item">Link Item</div>
+          <div class="divider"></div>
+          <div class="header">Header Item</div>
+          <div class="item">
+            <i class="dropdown icon"></i>
+            Sub Menu
+            <div class="menu">
+              <div class="item">Link Item</div>
+              <div class="item">Link Item</div>
+            </div>
+          </div>
+          <div class="item">Link Item</div>
+        </div>
+      </a>-->
+    </div>
+  </div>
+<div class="ui text container">
+  <p>Assignment 6</p>
+  <p>Next lesson. Use a JSON array to have custom error responses. </p>
+
+   <article style="width:500px">
+      <h2>In the future, you will be older. Specifically:</h2>
+      <form>
+          <fieldset id="snarkLevelFieldset">
+            <legend>Choose an Error Snark Level:</legend>
+            <select id="snarkLevel">
+              <option value="1">Mundane</option>
+              <option value="2">Snarky</option>
+              <option value="3">Extra Snarky</option>
+            </select>
+
+          </fieldset>
+
+          <fieldset id="futureFieldset">
+             <legend>Deep future (additional years beyond normal lifespan):</legend>
+             <input type="radio" name="future" id="future" value="yes" />
+             <label for="thin">Yes</label>
+             <input type="radio" name="future" id="future" value="no" />
+             <label for="thick">No</label>
+             <span id="futureOpts">Add 
+                <input type="radio" name="myFuture" id="myFuture" value="100" />
+                <label for="thin">+100 Years</label>
+                <input type="radio" name="myFuture" id="myFuture" value="1000" />
+                <label for="thick">+1000 years</label>
+            </span>
+          </fieldset>
+
+          <fieldset id="yearFieldset">
+            <label for="dateField">
+              Enter a year in the future (eg. 2022): 
+            </label>
+            <input type="number" id="dateField">
+          </fieldset>
+          <fieldset id="ageFieldset">
+            <label for="ageField">
+              Enter your age: 
+            </label>
+            <input type="number" id="ageField" />
+          </fieldset>
+          <fieldset>
+            <button type="button" id="getAge">Get your age...</button>
+          </fieldset>
+     </form>
+     <h2 id="result" style="display:none;">In the year <span id="outYear"></span> you will be <span id="outAge"></span>. <span id="outMessage"></span></h2>
+
+   </article>
+
+</div>
+
+
+  <div class="ui inverted vertical footer segment">
+    <div class="ui center aligned container">
+      <div class="ui stackable inverted divided grid">
+        <div class="three wide column">
+          <h4 class="ui inverted header">Group 1</h4>
+          <div class="ui inverted link list">
+            <a href="#" class="item">Link One</a>
+            <a href="#" class="item">Link Two</a>
+            <a href="#" class="item">Link Three</a>
+            <a href="#" class="item">Link Four</a>
+          </div>
+        </div>
+        <div class="three wide column">
+          <h4 class="ui inverted header">Group 2</h4>
+          <div class="ui inverted link list">
+            <a href="#" class="item">Link One</a>
+            <a href="#" class="item">Link Two</a>
+            <a href="#" class="item">Link Three</a>
+            <a href="#" class="item">Link Four</a>
+          </div>
+        </div>
+        <div class="three wide column">
+          <h4 class="ui inverted header">Group 3</h4>
+          <div class="ui inverted link list">
+            <a href="#" class="item">Link One</a>
+            <a href="#" class="item">Link Two</a>
+            <a href="#" class="item">Link Three</a>
+            <a href="#" class="item">Link Four</a>
+          </div>
+        </div>
+        <div class="seven wide column">
+          <h4 class="ui inverted header">Footer Header</h4>
+          <p>Extra space for a call to action inside the footer that could help re-engage users.</p>
+        </div>
+      </div>
+      <div class="ui inverted section divider"></div>
+      <img src="images/0.jpeg" alt="Me" class="ui centered mini image">
+      <div class="ui horizontal inverted small divided link list">
+        <a class="item" href="#">Site Map</a>
+        <a class="item" href="#">Contact Us</a>
+        <a class="item" href="#">Terms and Conditions</a>
+        <a class="item" href="#">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
+
+<!-- Below is my custom script that calculates your age in the future. It has form validation to make sure there is a number 
+     entered. The core is taken from the other assignments but I ahve enhanced the validaiton to have a radio and select box
+     as well. The Deep Futire adds a secondary set of radio duttons that will validate only if Yes is slected on the Deep 
+     Future choice. 
+ -->
+<script>
+  function dateAge() { 
+
+    // clear out old error highlights
+    var fields = document.getElementsByTagName("fieldset");
+    console.log("fields", fields.length);
+    for(let i = 0; i < fields.length; i++){
+      console.log(fields[i])
+      fields[i].style.backgroundColor = "white";
+    }
+
+    var age = document.getElementById("ageField").value;
+    var year =parseInt(document.getElementById("dateField").value, 10);
+    var today = new Date();
+    var theYear = today.getFullYear();
+    var yearModifier = 134;
+
+    var responses = {
+      0: {futureType: "Please select a value for the future type.",
+          deepFuture: "Please enter an additional timeframe.", 
+          yearAdd: "Please enter a year between this year and ",
+          ageNumber: "Please enter a numerical age.",
+          realAge: "Please enter a number lower than 133",
+          yearTooBig: " is too larege, enter a differnt year.",
+          yearTooLitte: "Please enter a year greater than this year."
+        },
+      1: {futureType:"Feelin' immortal? Enter a future type.",
+          deepFuture:"Since you are feeling immortal, enter how immortal.",
+          yearAdd: "Come on, play along, enter a year between this year and ",
+          ageNumber: "Come on, play along, enter your age. in a number.",
+          realAge:"come on, play along, enter your real age.",
+          yearTooBig:" you will have had a long life, try a different year.",
+          yearTooLitte:"Come on, play along, enter a year between this year and whenever."
+        },
+      2: {futureType:"Just enter a friggin' future type.",
+          deepFuture:"Just choose a friggin' additional time.",
+          yearAdd:"Just choose a year beteween this year and ",
+          ageNumber: "Enter your age as a number, doofus.",
+          realAge: "What a nuisane, enter YOUR age,",
+          yearTooBig:" you will have had a long life and be dead, try a different year.",
+          yearTooLitte: "ugh, add a year adn I am not going to tell you that it has to be in the future."
+        }
+    }
+    
+    var message = "";
+    var myRadio = document.getElementsByName("future");
+    try {
+
+      var snark = document.getElementById("snarkLevel").selectedIndex;
+      if( snark === -1 ){
+        document.getElementById("snarkLevelFieldset").style.backgroundColor = "lightYellow";
+        throw "To start, you must select a snark level.";
+      } 
+
+      
+      if (!myRadio[0].checked && !myRadio[1].checked){
+        document.getElementById("futureFieldset").style.backgroundColor = "lightYellow";
+        throw "Error: " + responses[snark].futureType;
+      } else if (document.querySelector('input[name="future"]:checked').value == "yes") {
+        if (!myFuture[0].checked && !myFuture[1].checked) {
+          document.getElementById("futureFieldset").style.backgroundColor = "lightYellow";
+          throw "Error: " + responses[snark].deepFuture;
+        } else {
+          yearModifier = document.querySelector('input[name="myFuture"]:checked').value;
+        }
+      }
+
+      if (isNaN(year)) {  
+          // validation to ensure that the year is a number. 
+          document.getElementById("yearFieldset").style.backgroundColor = "lightYellow";
+          throw "Error: " + responses[snark].yearAdd + (parseInt(yearModifier) + theYear);
+        } else {
+          // make sure the year is in the future
+          if (year >= theYear) {
+            if (year <= theYear + parseInt(yearModifier) ){
+              // validation to ensure that the age is a number. 
+              age = parseInt(age, 10);
+
+              //make sure the age is in a reasonable range
+              if (isNaN(age)){
+                document.getElementById("yearFieldset").style.backgroundColor = "lightYellow";
+                throw "Error: " + responses[snark].ageNumber;
+              } else if(age < 133 && age > 0) {
+                var outAge = (year - theYear) + age;
+
+
+                // make the results elemetnts visible
+                document.getElementById("result").style.display = "block";
+                document.getElementById("outYear").textContent = year;
+                document.getElementById("outAge").textContent = outAge;
+                // troubleshooting console
+                console.log(outAge  + " = ((" + year + " - " + theYear + ") + " + age +")");
+
+                var message = "";
+                if ( outAge <= 12 ){
+                  message = "You will still be a child."
+
+                } else if (outAge >= 13 && outAge <= 19) {
+                  message = "You will be a teenager";
+                  if (outAge == 16){
+                    message += ". You will be able to get a drivers license";
+                  }
+                  if (outAge >= 18){
+                    message += " and be able to vote and join the Army";
+                  }
+                  message +=".";
+                } else if (outAge > 19 && outAge < 65){
+                  message = "You will be an adult, have fun with that."
+                  if (outAge == 21) {
+                    message+= " You can now drink alcohol legally."
+                  }
+                  if (outAge > 50){
+                    message += " And, you will be over the hill. "
+                  }
+                } else if (outAge >= 65 && outAge < 100) {
+                  message = " You will be a senior citizen and hopefully be retired."
+                } else {
+                  message = "You will have lived longer than most."
+                  if (outAge >120){
+                    message += " And, might even be the oldest person ever."
+                  }
+                }
+
+                document.getElementById("outMessage").textContent = message;
+
+              } else {
+                document.getElementById("ageFieldset").style.backgroundColor = "lightYellow";
+                throw "Error: " + responses[snark].realAge;
+              }
+
+            } else {
+              document.getElementById("yearFieldset").style.backgroundColor = "lightYellow";
+               throw "After "+ (theYear + parseInt(yearModifier)) + responses[snark].yearTooBig; 
+
+            } 
+          } else {
+            document.getElementById("yearFieldset").style.backgroundColor = "lightYellow";
+             throw responses[snark].yearTooLitte;
+          }
+        }
+      } catch(message) {
+        alert(message);
+    }
+}
+  // set up submit button event to accomidate older browsers
+if (document.getElementById("getAge").addEventListener) { 
+  document.getElementById("getAge").addEventListener("click", dateAge, false);
+
+} else if (document.getElementById("getAge").attachEvent) { 
+  document.getElementById("getAge").attachEvent("click", dateAge);
+}
+if (document.getElementsByName("future")[0].addEventListener) { 
+console.log("got here")
+  document.getElementsByName("future")[1].addEventListener("change", futureOptions, false);
+  document.getElementsByName("future")[0].addEventListener("change", futureOptions, false);
+} else if (document.getElementsByName("future")[0].attachEvent) { 
+  document.getElementsByName("future")[0].attachEvent("click", futureOptions);
+}
+
+// make the select box have no selection
+document.getElementById("snarkLevel").selectedIndex = -1;
+// hide future options subcategory, wil only display when furure = yes
+document.getElementById("futureOpts").style.display = "none";
+  
+function futureOptions(ev){
+  var futureOpts = document.getElementById("futureOpts");
+  if (document.querySelector('input[name="future"]:checked').value == "yes") {
+    futureOpts.style.display = "inline";
+  } else {
+    futureOpts.style.display = "none";
+  }
+
+}
+
+
+</script>
+
+</body>
+
+</html>
