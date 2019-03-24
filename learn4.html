@@ -210,7 +210,7 @@
 <script>
   function dateAge() { 
 
-    // clear out old error highlights
+    // clear out old error highlights by getting all fieldssets and looping thoufhg them to change bg to white.
     var fields = document.getElementsByTagName("fieldset");
     console.log("fields", fields.length);
     for(let i = 0; i < fields.length; i++){
@@ -218,12 +218,15 @@
       fields[i].style.backgroundColor = "white";
     }
 
+    // main variables used for calculations
     var age = document.getElementById("ageField").value;
     var year =parseInt(document.getElementById("dateField").value, 10);
     var today = new Date();
     var theYear = today.getFullYear();
+    // this will beset by the Deep Future option to lengthen time span allowable to calculate
     var yearModifier = 134;
 
+    // object array to hld differnet levels of error responses. 
     var responses = {
       0: {futureType: "Please select a value for the future type.",
           deepFuture: "Please enter an additional timeframe.", 
@@ -250,9 +253,10 @@
           yearTooLitte: "ugh, add a year adn I am not going to tell you that it has to be in the future."
         }
     }
-    
+
+    // clear outand start results text
     var message = "";
-    var myRadio = document.getElementsByName("future");
+    
     try {
 
       var snark = document.getElementById("snarkLevel").selectedIndex;
@@ -261,12 +265,16 @@
         throw "To start, you must select a snark level.";
       } 
 
-      
+      // test radio button for selection.
+      var myRadio = document.getElementsByName("future");      
       if (!myRadio[0].checked && !myRadio[1].checked){
+        // if no selection then change the element color to yellow and stop processing. 
         document.getElementById("futureFieldset").style.backgroundColor = "lightYellow";
         throw "Error: " + responses[snark].futureType;
+      // optional validation for Deep furteure selection, if no then this will be skipped.
       } else if (document.querySelector('input[name="future"]:checked').value == "yes") {
         if (!myFuture[0].checked && !myFuture[1].checked) {
+           // if no selection then change the element color to yellow and stop processing. 
           document.getElementById("futureFieldset").style.backgroundColor = "lightYellow";
           throw "Error: " + responses[snark].deepFuture;
         } else {
@@ -276,6 +284,7 @@
 
       if (isNaN(year)) {  
           // validation to ensure that the year is a number. 
+        // if no apporopriate entry, then change the element color to yellow and stop processing. 
           document.getElementById("yearFieldset").style.backgroundColor = "lightYellow";
           throw "Error: " + responses[snark].yearAdd + (parseInt(yearModifier) + theYear);
         } else {
@@ -293,13 +302,14 @@
                 var outAge = (year - theYear) + age;
 
 
-                // make the results elemetnts visible
+                // make the results elements visible
                 document.getElementById("result").style.display = "block";
                 document.getElementById("outYear").textContent = year;
                 document.getElementById("outAge").textContent = outAge;
                 // troubleshooting console
                 console.log(outAge  + " = ((" + year + " - " + theYear + ") + " + age +")");
 
+                // main calculation if all validation passes...
                 var message = "";
                 if ( outAge <= 12 ){
                   message = "You will still be a child."
