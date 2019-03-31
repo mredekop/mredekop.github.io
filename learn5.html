@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <!--
+      Chapter 7 Case Project
+
+      See line 109 for custom html and 184 for javascript and a description of my troubleshooting techniques. 
+
+      Author: Matthew Redekop
+      Date:   3/31/2019
+
+      Filename: learn5.html
+   -->
+
+  <!-- Standard Meta from Semantic-UI
+    html template and JS framework from https://semantic-ui.com/ --> 
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0">
+
+  <!-- Site Properties -->
+  <title>Learn JS</title>
+<!-- load Semantic-UI framework materials -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+  <link rel="stylesheet" type="text/css" href="custom.css">
+
+  <script src="modernizr.custom.05819.js"></script>
+
+  <!-- load JQuery, this drives the semantic-ui scripts -->
+  <script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/components/visibility.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/components/sidebar.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/components/transition.js"></script>
+  <script>
+  $(document)
+    .ready(function() {
+
+      // fix main menu to page on passing, from semantic-ui
+      $('.main.menu').visibility({
+        type: 'fixed'
+      });
+      $('.overlay').visibility({
+        type: 'fixed',
+        offset: 80
+      });
+
+      // lazy load images, from semantic-ui
+      $('.image').visibility({
+        type: 'image',
+        transition: 'vertical flip in',
+        duration: 500
+      });
+
+      // show dropdown on hover, from semantic-ui
+      $('.main.menu  .ui.dropdown').dropdown({
+        on: 'hover'
+      });
+    })
+  ;
+  </script>
+
+</head>
+<body>
+
+  <div class="ui main text container">
+    <!-- Main header area -->
+    <h1 class="ui header">Learn OOP JS</h1>
+    <p>This page will contain information on how to use OOP techniques in JS</p>
+  </div>
+
+
+  <div class="ui borderless main menu">
+    <div class="ui text container">
+      <div class="header item">
+        <img class="logo" src="images/0.jpeg" alt="Me">
+        <a href="index.html">Learn OOS JS Home</a>
+      </div>
+        <a href="ECMAScript.html" class="item">ECMAScript</a>
+        <a href="json.html" class="item">JSON</a>
+<!-- comment out ui pieces that may not be needed yet
+    <a href="#" class="ui right floated dropdown item">
+        Dropdown <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item">Link Item</div>
+          <div class="item">Link Item</div>
+          <div class="divider"></div>
+          <div class="header">Header Item</div>
+          <div class="item">
+            <i class="dropdown icon"></i>
+            Sub Menu
+            <div class="menu">
+              <div class="item">Link Item</div>
+              <div class="item">Link Item</div>
+            </div>
+          </div>
+          <div class="item">Link Item</div>
+        </div>
+      </a>-->
+    </div>
+  </div>
+<div class="ui text container">
+  <p>Assignment 7</p>
+  <p>Next lesson. Use a JSON array to have custom error responses. </p>
+
+   <article>
+      <h2>Calculate time elapsed since selected date</h2>
+      <form>
+          <fieldset>
+            <label for="dateSelected">
+              Select a date
+            </label>
+            <input type="date" id="dateSelected" />
+          </fieldset>
+          <fieldset class="button">
+            <button type="button" id="determineDay">Calulate Time</button>
+          </fieldset>
+          <fieldset>
+             <p>Time Elapsed:</p>
+            <p id="elapsed"></p>
+          </fieldset>
+     </form>
+   </article>
+</div>
+
+
+  <div class="ui inverted vertical footer segment">
+    <div class="ui center aligned container">
+      <div class="ui stackable inverted divided grid">
+        <div class="three wide column">
+          <h4 class="ui inverted header">Group 1</h4>
+          <div class="ui inverted link list">
+            <a href="#" class="item">Link One</a>
+            <a href="#" class="item">Link Two</a>
+            <a href="#" class="item">Link Three</a>
+            <a href="#" class="item">Link Four</a>
+          </div>
+        </div>
+        <div class="three wide column">
+          <h4 class="ui inverted header">Group 2</h4>
+          <div class="ui inverted link list">
+            <a href="#" class="item">Link One</a>
+            <a href="#" class="item">Link Two</a>
+            <a href="#" class="item">Link Three</a>
+            <a href="#" class="item">Link Four</a>
+          </div>
+        </div>
+        <div class="three wide column">
+          <h4 class="ui inverted header">Group 3</h4>
+          <div class="ui inverted link list">
+            <a href="#" class="item">Link One</a>
+            <a href="#" class="item">Link Two</a>
+            <a href="#" class="item">Link Three</a>
+            <a href="#" class="item">Link Four</a>
+          </div>
+        </div>
+        <div class="seven wide column">
+          <h4 class="ui inverted header">Footer Header</h4>
+          <p>Extra space for a call to action inside the footer that could help re-engage users.</p>
+        </div>
+      </div>
+      <div class="ui inverted section divider"></div>
+      <img src="images/0.jpeg" alt="Me" class="ui centered mini image">
+      <div class="ui horizontal inverted small divided link list">
+        <a class="item" href="#">Site Map</a>
+        <a class="item" href="#">Contact Us</a>
+        <a class="item" href="#">Terms and Conditions</a>
+        <a class="item" href="#">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
+
+<!-- Below is my custom script that calculates the time passed fsince the entered date. 
+     It has form validation to make sure there is a date in the past entered. It does not
+     take into account leap years. 
+ -->
+<script>
+
+function calculateElapsedTime() {
+  // fetched from input elements
+  var selection = document.getElementById("dateSelected").value;
+  var result = document.getElementById("elapsed");
+
+  // create new date objects 
+  // in each, set the time to 12 which also has the side affect of returning the epoch time 
+  // which is useful for our calculations.  
+  var dateNow = new Date().setUTCHours(12);
+  // create object with the selected date from the form element as the constructor argument
+  var selectedDate = new Date(selection);
+  console.log(selectedDate, selectedDate.getUTCMonth())
+  var selectedMonth = selectedDate.getUTCMonth();
+
+  selectedDate = selectedDate.setUTCHours(12);
+  
+  // set output variables 
+  var resultYears = 0;
+  var resultMonths = 0;
+  var resultDays = 0;
+
+  // make sure date is in the past
+  if (selectedDate < dateNow && selection != ""){
+
+    // get the epoch difference in milliseconds
+    difference = dateNow - selectedDate;
+
+    // convert total difference into days, then use that to calculate.
+    totalDays = Math.floor(difference / 1000 / 60 / 60 / 24);
+
+    //calculate years, if needed, then set months to be calculated
+    if (totalDays >= 365){
+      resultYears = Math.floor(totalDays / 365);
+      monthDays = (totalDays % 365);
+    } else {
+      monthDays = totalDays;
+    }
+
+    // try to account for short February  
+    var febFactor = (selectedMonth == 1) ? 2: 0;
+
+    console.log("fudge", selectedMonth, febFactor);
+
+    //calclate months if needed, then days
+    if (monthDays >= 31){
+      resultMonths = Math.floor(monthDays / 30);
+      resultDays = Math.ceil(monthDays % 30) + febFactor;
+    } else {
+      resultDays = monthDays + febFactor;
+    }
+
+    // display results to the page
+    result.innerHTML = "Years: " + resultYears + ", Months: " + resultMonths + ", Days: " + resultDays;
+
+  } else {
+    // no value entered, so display warning
+    alert("Please enter a date in the requested format.");
+  }
+}
+
+  // add event listener to Find day button and clear form
+  function createEventListener() {
+    // fetch handle button element
+    var submitButton = document.getElementById("determineDay");
+    if (submitButton.addEventListener) {
+      // create eventlistern for modern browsers
+      submitButton.addEventListener("click", calculateElapsedTime, false); 
+    } else if (submitButton.attachEvent) {
+      // create event listener for IE8
+      submitButton.attachEvent("onclick", calculateElapsedTime);
+    }
+    // clear last date value on reload 
+    document.getElementById("dateSelected").value = "";
+    // clear last results day value on reload 
+    document.getElementById("elapsed").innerHTML = "";
+  }
+
+  if (window.addEventListener) {
+    //add eventlistern for modern browsers
+    window.addEventListener("load", createEventListener, false);
+  } else if (window.attachEvent) {
+    // add event listener for IE8
+     window.attachEvent("onload", createEventListener);
+  }
+
+</script>
+</body>
+</html>
