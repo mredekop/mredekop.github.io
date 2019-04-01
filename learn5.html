@@ -190,9 +190,9 @@ function calculateElapsedTime() {
   var dateNow = new Date().setUTCHours(12);
   // create object with the selected date from the form element as the constructor argument
   var selectedDate = new Date(selection);
-  console.log(selectedDate, selectedDate.getUTCMonth())
+  // for febFudge and adding a day for the short month
   var selectedMonth = selectedDate.getUTCMonth();
-
+  // then, switch to epoch time
   selectedDate = selectedDate.setUTCHours(12);
   
   // set output variables 
@@ -204,10 +204,8 @@ function calculateElapsedTime() {
   if (selectedDate < dateNow && selection != ""){
 
     // get the epoch difference in milliseconds
-    difference = dateNow - selectedDate;
-
     // convert total difference into days, then use that to calculate.
-    totalDays = Math.floor(difference / 1000 / 60 / 60 / 24);
+    totalDays = Math.floor((dateNow - selectedDate) / 1000 / 60 / 60 / 24);
 
     //calculate years, if needed, then set months to be calculated
     if (totalDays >= 365){
@@ -218,14 +216,12 @@ function calculateElapsedTime() {
     }
 
     // try to account for short February  
-    var febFactor = (selectedMonth == 1) ? 2: 0;
-
-    console.log("fudge", selectedMonth, febFactor);
+    let febFactor = (selectedMonth == 1) ? 1: 0;
 
     //calclate months if needed, then days
     if (monthDays >= 31){
-      resultMonths = Math.floor(monthDays / 30);
-      resultDays = Math.ceil(monthDays % 30) + febFactor;
+      resultMonths = Math.floor(monthDays / 30.41666);
+      resultDays = Math.ceil(monthDays % 30.41666) + febFactor;
     } else {
       resultDays = monthDays + febFactor;
     }
@@ -263,6 +259,7 @@ function calculateElapsedTime() {
     // add event listener for IE8
      window.attachEvent("onload", createEventListener);
   }
+
 
 </script>
 </body>
