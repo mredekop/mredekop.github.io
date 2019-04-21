@@ -266,10 +266,6 @@ function dateAge() {
       //fields[i].style.backgroundColor = "white";
     }
 
-
-
-
-
     // main variables used for calculations
     var age = $("#ageField").val();
     var year =parseInt($("#dateField").val(), 10);
@@ -321,10 +317,6 @@ function dateAge() {
       }    
 
       // test radio button for selection.
-  
-//      var myRadio = document.getElementsByName("future");      
-//      var deepFuture = document.getElementsByName("deepFuture");
-
       // converted to jQuery
       if ($('input[name=future]:checked').val() == undefined){
         // if no selection then change the element color to yellow and stop processing. 
@@ -428,9 +420,8 @@ function dateAge() {
         alert(message);
     }
 }
-  // set up submit button event to accomidate older browsers
 
-
+// set up submit button event to accomidate older browsers
 // make the select box have no selection
 // converted to jQuery
 $("#snarkLevel").val(-1);
@@ -455,7 +446,6 @@ function futureOptions(ev){
   }
 }
 
-
 // converted to jQuery
 $("#getAge").click(dateAge);
 //get option 1 to add an event listener to show options on changes in form
@@ -477,10 +467,6 @@ $("#dateField").blur(showSelectedOptions);
 
 //get option 5 to add an event listener to show options on changes in form
 document.getElementById("ageField").addEventListener("input", showSelectedOptions, false);
-
-
-
-
 
 </script>
 
