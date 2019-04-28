@@ -104,7 +104,7 @@
   </div>
 <div class="ui text container">
   <p>Assignment 6</p>
-  <p>Next lesson. Use a JSON array to have custom error responses. </p>
+  <p>Module 6: Form Validation from Chapter 6</p>
 
    <article style="width:500px">
       <h2>In the future, you will be older. Specifically:</h2>
@@ -212,21 +212,23 @@
 
     // clear out old error highlights by getting all fieldssets and looping thoufhg them to change bg to white.
     var fields = document.getElementsByTagName("fieldset");
-    console.log("fields", fields.length);
+    // loop through input fieldsset blocks and reset all fields back to white (where previous tries were set to yellow)
     for(let i = 0; i < fields.length; i++){
-      console.log(fields[i])
+      //console.log(fields[i])
       fields[i].style.backgroundColor = "white";
     }
 
-    // main variables used for calculations
+    // main variables used for calculations, get age
     var age = document.getElementById("ageField").value;
+    // get year selected and make sure it is a number
     var year =parseInt(document.getElementById("dateField").value, 10);
+    // make new date object that holds today
     var today = new Date();
     var theYear = today.getFullYear();
     // this will beset by the Deep Future option to lengthen time span allowable to calculate
     var yearModifier = 134;
 
-    // object array to hld differnet levels of error responses. 
+    // object array to hold differnet levels of error responses. 
     var responses = {
       0: {futureType: "Please select a value for the future type.",
           deepFuture: "Please enter an additional timeframe.", 
@@ -258,15 +260,18 @@
     var message = "";
     
     try {
-
+      // get the snark level from the select box, it will be a positive number and -1 means that nothing is selected
       var snark = document.getElementById("snarkLevel").selectedIndex;
       if( snark === -1 ){
         document.getElementById("snarkLevelFieldset").style.backgroundColor = "lightYellow";
         throw "To start, you must select a snark level.";
       } 
 
-      // test radio button for selection.
-      var myRadio = document.getElementsByName("future");      
+      // test radio button for selection, first get handle
+      var myRadio = document.getElementsByName("future");
+      // get handle to amout of time in future
+      var myFuture = document.getElementsByName("myFuture");  
+
       if (!myRadio[0].checked && !myRadio[1].checked){
         // if no selection then change the element color to yellow and stop processing. 
         document.getElementById("futureFieldset").style.backgroundColor = "lightYellow";
@@ -299,6 +304,7 @@
                 document.getElementById("yearFieldset").style.backgroundColor = "lightYellow";
                 throw "Error: " + responses[snark].ageNumber;
               } else if(age < 133 && age > 0) {
+                // of age range is ok, do the main calculation
                 var outAge = (year - theYear) + age;
 
 

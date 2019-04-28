@@ -103,8 +103,7 @@
     </div>
   </div>
 <div class="ui text container">
-  <p>First lesson. Use a canned object, the most useful and one that is used widely: the date object.</p>
-  <p> create a date object like so: <i>var t = new Date();</i> and then get properties like hour, minute, and, as in the case below, the year.</p>
+  <p>Module 2: Mathematical Calculation from Chapter 2</p>
 
    <article style="width:500px">
 
@@ -185,11 +184,16 @@
  -->
 <script>
   function dateAge() { 
+    // get input values off of the page, age:
     var age = document.getElementById("ageField").value;
+
+    // get year:
     var year = document.getElementById("dateField").value;
 
+    // make sure that the input is a number
     year =parseInt(year, 10);
 
+        // if it is detected that input is not a number
     if (isNaN(year)) {  
       // validation to ensure that the year is a number. 
       alert("come on, play along, enter a year between 2019 and whenever.")
@@ -202,12 +206,17 @@
 
         //make sure the age is in a reasonable range
         if (isNaN(age) && age < 133 && age > 0){
+          // if not, tell the user
           alert("come on, play along, enter your age.")
         } else {
+          // make new date object to compare with
           var today = new Date();
+          // extract the current year from date object 
           var theYear = today.getFullYear();
+          // calculate age based on year
           var out = (year - theYear) + age;
 
+           // print out reuslts to the page
           document.getElementById("result").style.display = "block";
           document.getElementById("outYear").textContent = year;
           document.getElementById("outAge").textContent = out;
@@ -215,13 +224,12 @@
 
         }
       } else {
+        // the year is not in the designated range, tell teh user to try again. 
           alert("come on, play along, enter a year between 2019 and whenever.")
       }
     }
-
-    
-
   }
+  // add eventlistener for the button
   document.getElementById("getAge").addEventListener("click", dateAge, false);
 
 </script>

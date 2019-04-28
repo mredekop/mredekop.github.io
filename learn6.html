@@ -103,8 +103,8 @@
     </div>
   </div>
 <div class="ui text container">
-  <p>Assignment 6</p>
-  <p>Next lesson. Use a JSON array to have custom error responses. </p>
+  <p>Assignment 8</p>
+  <p>Module 8: Form from Chapter 8 </p>
 
    <article style="width:500px">
       <h2>In the future, you will be older. Specifically:</h2>
@@ -249,17 +249,20 @@ function showSelectedOptions(){
 
 function dateAge() { 
 
-    // clear out old error highlights by getting all fieldssets and looping thoufhg them to change bg to white.
+    // clear out old error highlights by getting all field sets and looping thoufhg them to change bg to white.
     var fields = document.getElementsByTagName("fieldset");
-    console.log("fields", fields.length);
+    //console.log("fields", fields.length);
+    // loop through input fieldsset blocks and reset all fields back to white (where previous tries were set to yellow)
     for(let i = 0; i < fields.length; i++){
-      console.log(fields[i])
+      //console.log(fields[i])
       fields[i].style.backgroundColor = "white";
     }
 
     // main variables used for calculations
     var age = document.getElementById("ageField").value;
+    // get year selected and make sure it is a number
     var year =parseInt(document.getElementById("dateField").value, 10);
+    // make new date object that holds today
     var today = new Date();
     var theYear = today.getFullYear();
     // this will beset by the Deep Future option to lengthen time span allowable to calculate
@@ -298,6 +301,7 @@ function dateAge() {
     
     try {
 
+      // get the snark level from the select box, it will be a positive number and -1 means that nothing is selected
       var snark = document.getElementById("snarkLevel").selectedIndex;
       if( snark === -1 ){
         document.getElementById("snarkLevelFieldset").style.backgroundColor = "lightYellow";
@@ -336,11 +340,12 @@ function dateAge() {
 
               //make sure the age is in a reasonable range
               if (isNaN(age)){
+                // mark field as not ok
                 document.getElementById("yearFieldset").style.backgroundColor = "lightYellow";
                 throw "Error: " + responses[snark].ageNumber;
               } else if(age < 133 && age > 0) {
+                // of age range is ok, do the main calculation
                 var outAge = (year - theYear) + age;
-
 
                 // make the results elements visible
                 document.getElementById("result").style.display = "block";
@@ -428,14 +433,17 @@ function futureOptions(ev){
   }
 }
 
+// create and add event listeners
 function createEventListeners() {
+  // make handle to age from age input
   let getAge = document.getElementById("getAge");
-
+  // make handle to selection of whether the extra furture option is selected 
   let future = document.getElementsByName("future");
+  // make handle to deep furture selection 
   let deepFuture = document.getElementsByName("deepFuture");
 
   if (getAge.addEventListener) {
-
+    // addevent handlers to page...
     getAge.addEventListener("click", dateAge, false);
     //get option 1 to add an event listener to show options on changes in form
     future[0].addEventListener("click", showSelectedOptions, false);
@@ -472,15 +480,13 @@ function createEventListeners() {
     document.getElementById("ageField").attachEvent("propertychange", showSelectedOptions);
   }
 }
+// reate event listeners to page for moderbrowsers
 if (window.addEventListener) {
   window.addEventListener("load", createEventListeners, false);
 } else if (window.attachEvent) {
+  // add event listeners for IE8
   window.attachEvent("onload", createEventListeners);
 }
-
-
-
-
 
 </script>
 

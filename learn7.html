@@ -215,16 +215,18 @@
   var customizationOptions = [];
 
 function showSelectedOptions(){
-    // make sure that the options out put and options array are empty
+    // make sure that the options output and options array are empty
     //converted to jQuery
     $("#optionsText").html(" ");
     customizationOptions = [];
 
     // get options and push them into the array
     // converted to jQuery
+    // get the snark level from the select box
     if ($("#snarkLevel").val() > -1){
-      // converted to jQuery
+      // converted to jQuery, get the text of the selection
       let snark = $("#snarkLevel option:selected").text();
+      // add the snarklevel to the array that holds the options set
       customizationOptions.push("Snark Level: " + snark);
 
     }
@@ -257,24 +259,27 @@ function showSelectedOptions(){
 
 function dateAge() { 
 
-    // clear out old error highlights by getting all fieldssets and looping thoufhg them to change bg to white.
+    // clear out old error condition highlights by getting all fieldssets and looping thoufhg them to change bg to white.
     //converted to jQuery
     var fields = $("fieldset");
-
+    // loop through input fieldsset blocks and reset all fields back to white (where previous tries were set to yellow)
     for(let i = 0; i < fields.length; i++){
       $(fields[i]).css('background-color', 'white');
       //fields[i].style.backgroundColor = "white";
     }
 
-    // main variables used for calculations
+    // main variables used for calculations, get age input
     var age = $("#ageField").val();
+    // get year inut and make sure it is a number
     var year =parseInt($("#dateField").val(), 10);
+    // create a new date object that holds to days date
     var today = new Date();
+    // extract the current year form the date object
     var theYear = today.getFullYear();
     // this will beset by the Deep Future option to lengthen time span allowable to calculate
     var yearModifier = 134;
 
-    // object array to hld differnet levels of error responses. 
+    // object array to hold differnet levels of error responses. 
     var responses = {
       1: {futureType: "Please select a value for the future type.",
           deepFuture: "Please enter an additional timeframe.", 
@@ -306,13 +311,13 @@ function dateAge() {
     var message = "";
     
     try {
-      //converted to jQuery
+      //converted to jQuery, get handle to select box
       var snark = $("#snarkLevel").val();
-
+      // get the snark level from the select box, it will be a positive number and -1 means that nothing is selected
       if( snark === -1 || snark == undefined){
         // converted to jQuery
         $('#snarkLevelFieldset').css('background-color', 'lightYellow');
-
+        // set error
         throw "To start, you must select a snark level.";
       }    
 
@@ -332,7 +337,7 @@ function dateAge() {
           $('#futureFieldset').css('background-color', 'lightYellow');
           throw "Error: " + responses[snark].deepFuture;
         } else {
-          // converted to jQuery
+          // converted to jQuery, get whether theyear modifier is selected
           yearModifier = $('input[name="deepFuture"]:checked').val();
         }
       }
@@ -350,11 +355,12 @@ function dateAge() {
               // validation to ensure that the age is a number. 
               age = parseInt(age, 10);
 
-              //make sure the age is in a reasonable range
+              //make sure the age is in a reasonable range, if not change the color of the field to yellow
               if (isNaN(age)){
                 $('#yearFieldset').css('background-color', 'lightYellow');
                 throw "Error: " + responses[snark].ageNumber;
               } else if(age < 133 && age > 0) {
+                // of age range is ok, do the main calculation
                 var outAge = (year - theYear) + age;
 
 
