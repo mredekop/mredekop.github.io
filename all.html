@@ -106,15 +106,36 @@
 
     <article style="width:500px">
 
-    <a href="learn.html">Module 2: Mathematical Calculation from Chapter 2</a><br>
-    <a href="learn2.html">Module 3: If or Switch statement from Chapter 3</a><br>
-    <a href="learn3.html">Module 4: Exception handling from Chapter 4</a><br>
-    <a href="gallery.html">Module 5: Image Gallery</a><br>
-    <a href="learn4.html">Module 6: Form Validation from Chapter 6</a><br>
-    <a href="learn5.html">Module 7: Calculation of time elapsed from Chapter 7</a><br>
-    <a href="learn6.html">Module 8: Form from Chapter 8</a><br>
-    <a href="learn7.html">Module 10: jQuery</a>
+    <p><a href="learn.html">Module 2: Mathematical Calculation from Chapter 2</a><br>
+    This is the basis for all of my scripts in the project. This script calculates your age in the future. I included error checking to make sure there is a number entered. The calculation required for the module is the calculation of ((the current year) - (the future year)) + (entered age) = how old the person will be in the selected, future date. It uses a date object to get the current date and then fetches the current year number to calculate against the entered values.</p> 
 
+    <p><a href="learn2.html">Module 3: If or Switch statement from Chapter 3</a><br>
+      This script adds to the core from module 2 and shows the use of an if / else statement by adding custom messaging depending on the age calculated. Depending on the age and year entered, a different message will be shown along with the results. 
+    </p>
+    <p><a href="learn3.html">Module 4: Exception handling from Chapter 4</a><br>
+     Building on the script that calculates your age in the future, Module 4 requires the use of error handling so I changed the
+     script by adding try/catch exceptions and where I replaced the alert() showing the error in each statement to 1 alert() in 
+     the catch statement after an exception from the try/catch statement. While the behavior is the same, the exact way that it was produced is very different.  
+    </p>
+    <p><a href="gallery.html">Module 5: Image Gallery</a><br>
+      I used the example in the book as the basis for this gallery and customized it for my page. It needed modifications to work within my page, but these were just moving elements and adjusting variables to fit my purposes. I used a JSON object instead of an array so that an element could be accessed by the element name, and that element name could be a number (like the array from the original script) and it was an efficient way of getting the pet name and picture with a number for the picture. This script is the only one that has an external JS file in the script.js file. </p>
+
+    <p><a href="learn4.html">Module 6: Form Validation from Chapter 6</a><br>
+      Again, the core of this page is taken from the other assignments but I have enhanced the form validation to have a radio and select box
+     as well. The Deep Future adds a secondary set of radio buttons that will validate only if "Yes" is selcted on the "Deep 
+     Future" choice. When that selection is chosen, the year range that is allowed will be allowed beyond the normal lifespan of a human. Previously, it would only calculate age in a year up to the current year plus 133.</p>
+
+    <p><a href="learn5.html">Module 7: Calculation of time elapsed from Chapter 7</a><br>
+      This script was one of the more difficult scripts to get right: time functions are tricky because of leap years and the different numbers of 
+      days in the months, especially February. While it is not an exacting time function, it does not take into account leap years.  I did add an attempt to rectify the minus days in February if it was the selected month. My script starts out seeing if the selected date is divisible by years and form the 
+      left over days, goes to calculating months and then with the left over days, calculates the number of days.   
+    </p>
+    <p><a href="learn6.html">Module 8: Form from Chapter 8</a><br>
+       Building on my script that calculates your age in the future, I have added showSelectedOptions function which takes the selected options that the user has selected, adds them to an array using .push() and then converts them into a string using the join() method. The result is that the 
+       selected options are displayed above the button and the user can see them before clicking the calculate button. 
+    </p>
+   <p><a href="learn7.html">Module 10: jQuery</a><br>
+    With my script that calculates your age in the future, I have changed all of the event handlers, node selection methods, and data capture functions to jQuery. In the script, I noted all of the locations that these took place and it made for a much shorter script. 
     </article>
 
 </div>
